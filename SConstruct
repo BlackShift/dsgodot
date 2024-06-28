@@ -12,7 +12,6 @@ def validate_parent_dir(key, val, env):
 
 
 libname = "dsgodot"
-projectdir = "dsgodot-addon"
 
 localEnv = Environment(tools=["default"], PLATFORM="")
 
@@ -50,8 +49,10 @@ env.Alias("compiledb", compilation_db)
 
 env = SConscript("godot-cpp/SConstruct", {"env": env, "customs": customs})
 
-env.Append(CPPPATH=["src/"])
+env.Append(CPPPATH=["src/","DualSenseWindows/"])
+env.Append(LIBS=['hid','setupapi'])
 sources = Glob("src/*.cpp")
+sources += Glob("DualSenseWindows/*.cpp")
 
 file = "{}{}{}".format(libname, env["suffix"], env["SHLIBSUFFIX"])
 
@@ -65,7 +66,7 @@ library = env.SharedLibrary(
     source=sources,
 )
 
-copy = env.InstallAs("{}/addons/dsgodot/lib/lib{}".format(projectdir, env["platform"], file), library)
+copy = env.InstallAs("./addons/dsgodot/lib/lib{}".format(env["platform"], file), library)
 
 default_args = [library, copy]
 if localEnv.get("compiledb", False):

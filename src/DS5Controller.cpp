@@ -1,7 +1,7 @@
 #include "DS5Controller.h"
 #include <godot_cpp/core/class_db.hpp>
-#include "DualSenseWindows/Device.h"
-#include "DualSenseWindows/IO.h"
+#include "../DualSenseWindows/Device.h"
+#include "../DualSenseWindows/IO.h"
 #include <godot_cpp/variant/utility_functions.hpp>
 
 using namespace godot;

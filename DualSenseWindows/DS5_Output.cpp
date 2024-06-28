@@ -74,7 +74,7 @@ void __DS5W::Output::processTrigger(DS5W::TriggerEffect* ptrEffect, unsigned cha
 			buffer[0x05] = ptrEffect->EffectEx.middleForce;
 			buffer[0x06] = ptrEffect->EffectEx.endForce;
 			// Frequency
-			buffer[0x09] = max(1, ptrEffect->EffectEx.frequency / 2);
+			buffer[0x09] = (((1) > (ptrEffect->EffectEx.frequency / 2)) ? (1) : (ptrEffect->EffectEx.frequency / 2));
 
 			break;
 

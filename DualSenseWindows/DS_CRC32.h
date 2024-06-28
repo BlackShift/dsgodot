@@ -3,7 +3,7 @@
 	https://github.com/Ohjurot/DualSense-Windows
 
 	Contributors of this file:
-	11.2020 Ludwig F�chsl
+	11.2020 Ludwig Fchsl
 
 	Licensed under the MIT License (To be found in repository root directory)
 */
